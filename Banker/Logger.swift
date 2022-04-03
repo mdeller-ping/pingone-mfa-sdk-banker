@@ -17,8 +17,17 @@
 import os.log
 
 struct Logger {
+    
     static func error(message: String) {
         os_log("%s", type: .error, message)
+    }
+    
+    static func debug(message: String) {
+        os_log("%s", type: .debug, message)
+    }
+    
+    static func info(message: String) {
+        os_log("%s", type: .info, message)
     }
     
 }

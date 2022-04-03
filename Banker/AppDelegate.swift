@@ -12,25 +12,70 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-//  https://www.raywenderlich.com/11395893-push-notifications-tutorial-getting-started
-
 import Foundation
 import UserNotifications
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
+    // different ways the application can be called
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-
+        
         registerForPushNotifications()
+
+        let notificationOption = launchOptions?[.remoteNotification]
+
+        if
+            let notification = notificationOption as? [String: AnyObject],
+            let aps = notification["aps"] as? [String: AnyObject] {
+            
+            Logger.debug(message: "Notification Received")
+        }
 
         return true
     }
 
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        guard let aps = userInfo["aps"] as? [String: AnyObject] else {
+            completionHandler(.failed)
+            return
+        }
+        
+        Logger.info(message: "Notification Received")
+        Logger.debug(message: "\(userInfo)")
+        
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        Logger.info(message: "Device Token: \(token)")
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        Logger.error(message: "Push Registration Failed: \(error)")
+    }
+
+    // supporting functions
+    
     func registerForPushNotifications() {
         UNUserNotificationCenter.current()
-        .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-            Logger.error(message: "the message")
+        .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
+            Logger.debug(message: "Notification Permission: \(granted)")
+            guard granted else { return }
+            self?.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            Logger.debug(message: "Notification Settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
         }
     }
     
