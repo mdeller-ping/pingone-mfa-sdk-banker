@@ -1,16 +1,16 @@
-//    Copyright 2022 Michael Deller
+//  Copyright 2022 Michael Deller
 //
-//    Licensed under the Apache License, Version 2.0 (the "License");
-//    you may not use this file except in compliance with the License.
-//    You may obtain a copy of the License at
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
 //
-//        http://www.apache.org/licenses/LICENSE-2.0
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
-//    Unless required by applicable law or agreed to in writing, software
-//    distributed under the License is distributed on an "AS IS" BASIS,
-//    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//    See the License for the specific language governing permissions and
-//    limitations under the License.
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
 
 //  https://www.raywenderlich.com/11395893-push-notifications-tutorial-getting-started
 
@@ -18,15 +18,20 @@ import Foundation
 import UserNotifications
 import SwiftUI
 
-func registerForPushNotifications() {
-  //1
-  UNUserNotificationCenter.current()
-    //2
-    .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-      //3
-      print("Permission granted: \(granted)")
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+
+        registerForPushNotifications()
+
+        return true
     }
+
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current()
+        .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+            Logger.error(message: "the message")
+        }
+    }
+    
 }
-
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool
-

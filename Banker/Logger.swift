@@ -12,17 +12,13 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 
-import SwiftUI
+//  https://developer.apple.com/documentation/os/logger#declaration
 
-struct ContentView: View {
-    var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
-}
+import os.log
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct Logger {
+    static func error(message: String) {
+        os_log("%s", type: .error, message)
     }
+    
 }

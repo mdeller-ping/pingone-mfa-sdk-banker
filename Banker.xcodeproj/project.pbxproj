@@ -12,8 +12,8 @@
 		058452CE27F892DD00AFC151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058452CD27F892DD00AFC151 /* Assets.xcassets */; };
 		058452D127F892DD00AFC151 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058452D027F892DD00AFC151 /* Preview Assets.xcassets */; };
 		058452D927F8939D00AFC151 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 058452D827F8939D00AFC151 /* AppAuth */; };
-		058452DC27F893F000AFC151 /* LoggerAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 058452DB27F893F000AFC151 /* LoggerAPI */; };
 		4C6FA92A27FA52880020D1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6FA92927FA52880020D1DA /* AppDelegate.swift */; };
+		4C6FA92C27FA5A9C0020D1DA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6FA92B27FA5A9C0020D1DA /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +25,7 @@
 		4C6FA92727FA51D90020D1DA /* Banker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banker.entitlements; sourceTree = "<group>"; };
 		4C6FA92827FA51E00020D1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4C6FA92927FA52880020D1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C6FA92B27FA5A9C0020D1DA /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +34,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				058452D927F8939D00AFC151 /* AppAuth in Frameworks */,
-				058452DC27F893F000AFC151 /* LoggerAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,13 +59,14 @@
 		058452C827F892DB00AFC151 /* Banker */ = {
 			isa = PBXGroup;
 			children = (
+				058452CF27F892DD00AFC151 /* Preview Content */,
 				4C6FA92827FA51E00020D1DA /* Info.plist */,
 				4C6FA92727FA51D90020D1DA /* Banker.entitlements */,
+				058452CD27F892DD00AFC151 /* Assets.xcassets */,
 				058452C927F892DC00AFC151 /* BankerApp.swift */,
 				058452CB27F892DC00AFC151 /* ContentView.swift */,
-				058452CD27F892DD00AFC151 /* Assets.xcassets */,
-				058452CF27F892DD00AFC151 /* Preview Content */,
 				4C6FA92927FA52880020D1DA /* AppDelegate.swift */,
+				4C6FA92B27FA5A9C0020D1DA /* Logger.swift */,
 			);
 			path = Banker;
 			sourceTree = "<group>";
@@ -96,7 +97,6 @@
 			name = Banker;
 			packageProductDependencies = (
 				058452D827F8939D00AFC151 /* AppAuth */,
-				058452DB27F893F000AFC151 /* LoggerAPI */,
 			);
 			productName = Banker;
 			productReference = 058452C627F892DB00AFC151 /* Banker.app */;
@@ -128,7 +128,6 @@
 			mainGroup = 058452BD27F892DB00AFC151;
 			packageReferences = (
 				058452D727F8939D00AFC151 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
-				058452DA27F893F000AFC151 /* XCRemoteSwiftPackageReference "LoggerAPI" */,
 			);
 			productRefGroup = 058452C727F892DB00AFC151 /* Products */;
 			projectDirPath = "";
@@ -159,6 +158,7 @@
 				4C6FA92A27FA52880020D1DA /* AppDelegate.swift in Sources */,
 				058452CC27F892DC00AFC151 /* ContentView.swift in Sources */,
 				058452CA27F892DC00AFC151 /* BankerApp.swift in Sources */,
+				4C6FA92C27FA5A9C0020D1DA /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,14 +375,6 @@
 				version = 1.5.0;
 			};
 		};
-		058452DA27F893F000AFC151 /* XCRemoteSwiftPackageReference "LoggerAPI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Kitura/LoggerAPI";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -390,11 +382,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 058452D727F8939D00AFC151 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
 			productName = AppAuth;
-		};
-		058452DB27F893F000AFC151 /* LoggerAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 058452DA27F893F000AFC151 /* XCRemoteSwiftPackageReference "LoggerAPI" */;
-			productName = LoggerAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
