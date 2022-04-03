@@ -13,6 +13,7 @@
 		058452D127F892DD00AFC151 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058452D027F892DD00AFC151 /* Preview Assets.xcassets */; };
 		058452D927F8939D00AFC151 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 058452D827F8939D00AFC151 /* AppAuth */; };
 		058452DC27F893F000AFC151 /* LoggerAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 058452DB27F893F000AFC151 /* LoggerAPI */; };
+		4C6FA92A27FA52880020D1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6FA92927FA52880020D1DA /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,9 @@
 		058452CB27F892DC00AFC151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		058452CD27F892DD00AFC151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058452D027F892DD00AFC151 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C6FA92727FA51D90020D1DA /* Banker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banker.entitlements; sourceTree = "<group>"; };
+		4C6FA92827FA51E00020D1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4C6FA92927FA52880020D1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +59,13 @@
 		058452C827F892DB00AFC151 /* Banker */ = {
 			isa = PBXGroup;
 			children = (
+				4C6FA92827FA51E00020D1DA /* Info.plist */,
+				4C6FA92727FA51D90020D1DA /* Banker.entitlements */,
 				058452C927F892DC00AFC151 /* BankerApp.swift */,
 				058452CB27F892DC00AFC151 /* ContentView.swift */,
 				058452CD27F892DD00AFC151 /* Assets.xcassets */,
 				058452CF27F892DD00AFC151 /* Preview Content */,
+				4C6FA92927FA52880020D1DA /* AppDelegate.swift */,
 			);
 			path = Banker;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C6FA92A27FA52880020D1DA /* AppDelegate.swift in Sources */,
 				058452CC27F892DC00AFC151 /* ContentView.swift in Sources */,
 				058452CA27F892DC00AFC151 /* BankerApp.swift in Sources */,
 			);
@@ -276,15 +284,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Banker/Banker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Banker/Preview Content\"";
 				DEVELOPMENT_TEAM = LAK6FDHPET;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Banker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -292,11 +303,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pingidentity.sa.mdeller.Banker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.notunique.com.banker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,15 +316,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Banker/Banker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Banker/Preview Content\"";
 				DEVELOPMENT_TEAM = LAK6FDHPET;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Banker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,11 +335,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pingidentity.sa.mdeller.Banker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.notunique.com.banker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
